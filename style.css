@@ -1,0 +1,265 @@
+:root {
+  --primary: #0f5c8c;
+  --accent: #f4a261;
+  --bg: linear-gradient(135deg, #0d102b 0%, #112d4e 40%, #00f5d4 100%);
+  --text: #e8f7ff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+header {
+  background: linear-gradient(
+      135deg,
+      rgba(15, 92, 140, 0.92),
+      rgba(15, 92, 140, 0.75)
+    ),
+    url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80")
+      center/cover no-repeat;
+  color: #fff;
+  padding: 60px 8%;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.8rem;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+header p {
+  max-width: 720px;
+  margin: 0 auto 25px auto;
+  font-size: 1.05rem;
+}
+
+.cta {
+  display: inline-block;
+  padding: 12px 22px;
+  background: var(--accent);
+  color: #1f1f1f;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+}
+
+main {
+  padding: 50px 8%;
+  display: grid;
+  gap: 40px;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+  color: var(--primary);
+}
+
+.destinations {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.08);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  display: flex;
+  flex-direction: column;
+  color: #1f2d3d;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.14);
+}
+
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 16px;
+  flex: 1;
+  color: #1f2d3d;
+}
+
+.card h3 {
+  margin-bottom: 8px;
+  font-size: 1.15rem;
+  color: #12314a;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #425466;
+}
+
+/* Modal toggle */
+.toggle {
+  display: none;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+}
+
+.overlay-backdrop {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+}
+
+.overlay-content {
+  position: relative;
+  background: #fff;
+  border-radius: 14px;
+  padding: 26px;
+  max-width: 1100px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: auto;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  color: #1f2d3d;
+}
+
+.overlay header {
+  background: none;
+  color: var(--text);
+  padding: 0 0 10px;
+  text-align: left;
+}
+
+.overlay h2 {
+  margin-bottom: 6px;
+}
+
+.overlay p {
+  max-width: 760px;
+  color: #4a5564;
+}
+
+.places {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.place {
+  background: #f9fbfe;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #e6edf5;
+  display: flex;
+  flex-direction: column;
+}
+
+.place img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.place .body {
+  padding: 12px 12px 14px;
+  color: #1f2d3d;
+}
+
+.place h4 {
+  margin-bottom: 6px;
+  color: var(--primary);
+}
+
+.close-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: var(--accent);
+  color: #1f1f1f;
+  border-radius: 50px;
+  padding: 6px 12px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+}
+
+/* Toggle visibility */
+.toggle:checked + label + .overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+.pill {
+  background: #fff;
+  border-left: 5px solid var(--accent);
+  border-radius: 10px;
+  padding: 14px 16px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+  color: #1f2d3d;
+}
+
+.pill strong {
+  display: block;
+  margin-bottom: 6px;
+}
+
+footer {
+  text-align: center;
+  padding: 24px 8% 40px;
+  color: #5c6b7a;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 540px) {
+  header {
+    padding: 45px 6%;
+  }
+  header h1 {
+    font-size: 2.2rem;
+  }
+  .cta {
+    width: 100%;
+    text-align: center;
+  }
+}
